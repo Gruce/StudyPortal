@@ -15,7 +15,7 @@ class Chat extends Controller
 
     public function fetchMessages()
     {
-        return Message::with('user')->get();
+        return Message::with('User')->get();
     }
 
     public function sendMessage(Request $request)
