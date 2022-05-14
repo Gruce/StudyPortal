@@ -2,7 +2,7 @@ require('./bootstrap');
 
 require('alpinejs');
 
-require('vue')
+require('vue');
 
 Vue.component('chat-messages', require('../views/components/ChatMessages.vue'));
 Vue.component('chat-form', require('../views/components/ChatForm.vue'));

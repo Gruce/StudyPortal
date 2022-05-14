@@ -21453,6 +21453,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
+__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 Vue.component('chat-messages', __webpack_require__(/*! ../views/components/ChatMessages.vue */ "./resources/views/components/ChatMessages.vue"));
 Vue.component('chat-form', __webpack_require__(/*! ../views/components/ChatForm.vue */ "./resources/views/components/ChatForm.vue"));
 var app = new Vue({
