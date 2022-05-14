@@ -2,9 +2,10 @@ require('./bootstrap');
 
 require('alpinejs');
 
+require('vue')
 
-Vue.component('chat-messages', require('./ChatMessages.vue'));
-Vue.component('chat-form', require('./ChatForm.vue'));
+Vue.component('chat-messages', require('../views/components/ChatMessages.vue'));
+Vue.component('chat-form', require('../views/components/ChatForm.vue'));
 
 const app = new Vue({
     el: '#app',
