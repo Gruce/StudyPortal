@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props: ['user'],
+  props: ['User'],
 
   data() {
     return {

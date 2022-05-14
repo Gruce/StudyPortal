@@ -16,10 +16,11 @@ const app = new Vue({
 
     created() {
         this.fetchMessages();
+        console.log("Created")
         Echo.private('chat')
             .listen('MessageSent', (e) => {
                 this.messages.push({
-                    message: e.message.message,
+                    message: e.messages.message,
                     user: e.user
                 });
             });
@@ -30,6 +31,7 @@ const app = new Vue({
             axios.get('/messages').then(response => {
                 this.messages = response.data;
             });
+            console.log("Fetch messages")
         },
 
         addMessage(message) {

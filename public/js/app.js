@@ -21318,7 +21318,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['user'],
+  props: ['User'],
   data: function data() {
     return {
       newMessage: ''
@@ -21349,7 +21349,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['messages']
+  props: ['message']
 });
 
 /***/ }),
@@ -21358,9 +21358,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
-
-var _this2 = this;
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -21376,15 +21374,25 @@ var app = new Vue({
     messages: []
   },
   created: function created() {
+    var _this = this;
+
     this.fetchMessages();
+    console.log("Created");
+    Echo["private"]('chat').listen('MessageSent', function (e) {
+      _this.messages.push({
+        message: e.messages.message,
+        user: e.user
+      });
+    });
   },
   methods: {
     fetchMessages: function fetchMessages() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/messages').then(function (response) {
-        _this.messages = response.data;
+        _this2.messages = response.data;
       });
+      console.log("Fetch messages");
     },
     addMessage: function addMessage(message) {
       this.messages.push(message);
@@ -21393,12 +21401,6 @@ var app = new Vue({
       });
     }
   }
-});
-Echo["private"]('chat').listen('MessageSent', function (e) {
-  _this2.messages.push({
-    message: e.message.message,
-    user: e.user
-  });
 });
 
 /***/ }),
