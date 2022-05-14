@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api;
 use App\Http\Controllers\Assignment;
+use App\Http\Controllers\Chat;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
@@ -16,7 +17,6 @@ use App\Http\Controllers\Note;
 
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
-use App\Http\Resources\UserPostResource;
 use App\Http\Resources\UserResource;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -336,3 +336,9 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// PUSHER ROUTES
+
+Route::get('/chat', [Chat::class, 'index']);
+Route::get('/chat/messages', [Chat::class, 'fetchMessages']);
+Route::post('/chat/messages', [Chat::class, 'sendMessage']);
