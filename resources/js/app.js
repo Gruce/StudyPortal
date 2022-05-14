@@ -3,8 +3,8 @@ require('./bootstrap');
 require('alpinejs');
 
 
-Vue.component('chat-messages', require('../views/ChatMessages'));
-Vue.component('chat-form', require('../views/ChatForm'));
+Vue.component('chat-messages', require('./ChatMessages.vue'));
+Vue.component('chat-form', require('./ChatForm.vue'));
 
 const app = new Vue({
     el: '#app',
@@ -33,3 +33,11 @@ const app = new Vue({
         }
     }
 });
+
+Echo.private('chat')
+    .listen('MessageSent', (e) => {
+        this.messages.push({
+            message: e.message.message,
+            user: e.user
+        });
+    });
