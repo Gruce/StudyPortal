@@ -1,9 +1,9 @@
-<component>
+<template>
   <ul class="chat">
-    <li class="left clearfix" v-for="message in messages">
-      <div class="chat-body clearfix">
+    <li class="left clearfix" v-for="message in messages" :key="message.id">
+      <div class="clearfix">
         <div class="header">
-          <strong class="primary-font">
+          <strong>
             {{ message.user.name }}
           </strong>
         </div>
@@ -13,10 +13,9 @@
       </div>
     </li>
   </ul>
-</component>
-
+</template>
 <script>
 export default {
-  props: ['message']
+  props: ["messages"],
 };
 </script>
