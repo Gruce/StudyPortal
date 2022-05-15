@@ -340,5 +340,5 @@ Route::post('/email/verification-notification', function (Request $request) {
 // PUSHER ROUTES
 
 Route::get('/chat', [Chat::class, 'index']);
-Route::get('/chat/messages', [Chat::class, 'fetchMessages']);
-Route::post('/chat/messages', [Chat::class, 'sendMessage']);
+Route::get('/messages', [Chat::class, 'fetchMessages']);
+Route::post('/messages', [Chat::class, 'sendMessage']);

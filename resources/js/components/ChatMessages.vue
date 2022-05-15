@@ -1,4 +1,5 @@
 <template>
+  <p>Hello!</p>
   <ul class="chat">
     <li class="left clearfix" v-for="message in messages" :key="message.id">
       <div class="clearfix">
