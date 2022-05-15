@@ -17,6 +17,7 @@
         "laravel/socialite": "^5.2",
         "laravel/telescope": "^4.6",
         "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.4",
         "laravel/vapor-cli": "^1.25",
         "laravel/vapor-core": "^2.13",
         "livewire/livewire": "^2.6",

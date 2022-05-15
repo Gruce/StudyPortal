@@ -1,7 +1,8 @@
-
+<x-app-layout>
     <div class="container">
-        <div class="card">
+        <div x-ignore class="card">
             <div class="card-header">Chats</div>
+
             <div class="card-body">
                 <chat-messages :messages="messages"></chat-messages>
             </div>
@@ -10,3 +11,4 @@
             </div>
         </div>
     </div>
+</x-app-layout>

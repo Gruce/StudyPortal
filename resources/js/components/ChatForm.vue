@@ -8,10 +8,8 @@
         name="message"
         class="form-control input-sm"
         placeholder="Type your message here..."
-        v-model="newMessage">
-    //Call sendMessage() when the enter key is pressed.
-    @keyup.enter="sendMessage"
-    />
+        v-model="newMessage"
+        @keyup.enter="sendMessage"/>
     //Button
     <span class="input-group-btn">
       //Call sendMessage() this button is clicked.
